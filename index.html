@@ -1,0 +1,137 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Undangan Pernikahan Adlin & Irma</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      background: #fffaf5;
+      color: #333;
+      text-align: center;
+      overflow-x: hidden;
+    }
+    header {
+      background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80') no-repeat center center/cover;
+      padding: 5rem 1rem;
+      color: white;
+    }
+    h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 3.5rem;
+      margin-bottom: 0.2rem;
+    }
+    h2 {
+      font-size: 1.3rem;
+      font-weight: 300;
+    }
+    section {
+      padding: 2rem 1rem;
+    }
+    .date-box {
+      background: #fff3e6;
+      border-radius: 1rem;
+      display: inline-block;
+      padding: 1rem 2rem;
+      margin: 1rem 0;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    .map {
+      margin: 2rem 0;
+    }
+    .countdown {
+      font-size: 2rem;
+      margin-top: 1rem;
+    }
+    audio {
+      display: none;
+    }
+    .music-control {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      background: #f6e9dc;
+      border-radius: 50%;
+      padding: 0.7rem;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      cursor: pointer;
+    }
+    footer {
+      background: #f6e9dc;
+      padding: 1rem;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="music-control" onclick="toggleMusic()">🎵</div>
+  <audio id="bgMusic" autoplay loop>
+    <source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" type="audio/mpeg">
+  </audio>
+
+  <header>
+    <h1>Adlin & Irma</h1>
+    <h2>Dengan penuh cinta, kami mengundang Anda untuk merayakan hari bahagia kami</h2>
+  </header>
+
+  <section>
+    <h2>Waktu Menuju Hari Bahagia</h2>
+    <div class="countdown" id="countdown"></div>
+
+    <h2>Akad Nikah</h2>
+    <div class="date-box">
+      <p>Sabtu, 24 Agustus 2025</p>
+      <p>Pukul 09.00 WIB</p>
+      <p>di Kediaman Mempelai Wanita</p>
+    </div>
+
+    <h2>Resepsi</h2>
+    <div class="date-box">
+      <p>Sabtu, 24 Agustus 2025</p>
+      <p>Pukul 11.00 - 14.00 WIB</p>
+      <p>Jl. Bahagia No. 123, Semarang</p>
+    </div>
+  </section>
+
+  <section class="map">
+    <h2>Lokasi Acara</h2>
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3952.979536227942!2d110.42001007417752!3d-7.797068192224873!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a59be8a02d3e3%3A0x6be3de7d6f671f91!2sSemarang!5e0!3m2!1sid!2sid!4v1620000000000!5m2!1sid!2sid"
+      width="300" height="200" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+  </section>
+
+  <footer>
+    <p>Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir dan memberikan doa restu.</p>
+    <p>Adlin & Irma</p>
+  </footer>
+
+  <script>
+    // Countdown
+    const targetDate = new Date("2025-08-24T09:00:00").getTime();
+    const countdown = document.getElementById("countdown");
+    setInterval(() => {
+      const now = new Date().getTime();
+      const distance = targetDate - now;
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+      countdown.innerHTML = `${days} Hari ${hours} Jam ${minutes} Menit ${seconds} Detik`;
+    }, 1000);
+
+    // Music toggle
+    function toggleMusic() {
+      const music = document.getElementById("bgMusic");
+      if (music.paused) {
+        music.play();
+      } else {
+        music.pause();
+      }
+    }
+  </script>
+</body>
+</html>
